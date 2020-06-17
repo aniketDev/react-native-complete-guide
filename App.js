@@ -27,6 +27,12 @@ export default function App() {
     setEnteredGoal('');
   };
 
+  const deleteGoalHandler = (goalId) => {
+    setCourseGoals((currentGoals) => {
+      return currentGoals.filter((goal) => goal.uid !== goalId);
+    });
+  };
+
   return (
     <View style={styles.screen}>
       <View style={styles.inputContainer}>
@@ -40,7 +46,13 @@ export default function App() {
         style={styles.listContainer}
         keyExtractor={(item, index) => item.uid}
         data={courseGoals}
-        renderItem={(itemList) => <GoalItem itemList={itemList.item} />}
+        renderItem={(itemData) => (
+          <GoalItem
+            id={itemData.item.uid}
+            onDelete={deleteGoalHandler}
+            itemList={itemData.item}
+          />
+        )}
       />
     </View>
   );
