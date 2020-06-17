@@ -8,6 +8,11 @@ const GoalInput = (props) => {
     setEnteredGoal(enteredText);
   };
 
+  const onGoalAdd = () => {
+    props.onAddGoal(enteredGoal);
+    setEnteredGoal('');
+  };
+
   return (
     // <Modal visible={false}>
     <View style={styles.inputContainer}>
@@ -19,7 +24,8 @@ const GoalInput = (props) => {
       />
       <Button
         title="Click here"
-        onPress={props.onAddGoal.bind(this, enteredGoal)}
+        // onPress={props.onAddGoal.bind(this, enteredGoal)}
+        onPress={onGoalAdd}
       />
     </View>
     // </Modal>
