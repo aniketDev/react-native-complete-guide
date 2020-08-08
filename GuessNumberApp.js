@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, Button } from 'react-native';
 import { Header } from './components/GuessNumberApp/Header';
 import StartGameScreen from './screens/StartGameScreen';
 
@@ -15,7 +15,7 @@ const GuessNumberApp = (props) => {
 const styles = StyleSheet.create({
   screen: {
     // flex: 1,
-  },
+  }
 });
 
 export default GuessNumberApp;
