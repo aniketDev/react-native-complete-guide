@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Button, Image } from 'react-native';
 import BodyText from '../../components/GuessNumberApp/BodyText';
 import TitleText from '../../components/GuessNumberApp/TitleText';
 import Colors from '../../constants/colors';
+import MainButton from '../../components/GuessNumberApp/MainButton';
 
 const GameOver = (props) => {
   return (
@@ -22,7 +23,7 @@ const GameOver = (props) => {
         <Text style={styles.textNumber}>{props.roundsNumber}</Text> Number was{' '}
         <Text style={styles.textNumber}>{props.userNumber}</Text>
       </BodyText>
-      <Button title="New Game" onPress={props.onRestart} />
+      <MainButton onPress={props.onRestart}>NEW GAME</MainButton>
     </View>
   );
 };

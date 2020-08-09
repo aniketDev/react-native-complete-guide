@@ -15,6 +15,7 @@ import Input from '../components/GuessNumberApp/Input';
 import NumberContainer from '../components/GuessNumberApp/NumberContainer';
 import TitleText from '../components/GuessNumberApp/TitleText';
 import BodyText from '../components/GuessNumberApp/BodyText';
+import MainButton from '../components/GuessNumberApp/MainButton';
 
 const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -50,10 +51,9 @@ const StartGameScreen = (props) => {
       <Card style={styles.numberCard}>
         <BodyText>The selected number is:</BodyText>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button
-          title="Start Game"
-          onPress={() => props.onStartGame(selectedNumber)}
-        />
+        <MainButton onPress={() => props.onStartGame(selectedNumber)}>
+          START GAME
+        </MainButton>
       </Card>
     );
   }

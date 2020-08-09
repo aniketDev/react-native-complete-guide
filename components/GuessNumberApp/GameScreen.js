@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import NumberContainer from '../GuessNumberApp/NumberContainer';
 import Card from '../GuessNumberApp/Card';
 import DefaultStyles from '../../constants/defaut-styles';
+import MianButton from '../GuessNumberApp/MainButton';
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -37,7 +38,7 @@ const GameScreen = (props) => {
       (direction === 'greater' && currentGuess > userChoice)
     ) {
       Alert.alert("Don't lie", 'You know it is wrong', [
-        { text: 'Sorry!', style: 'cancel' },
+        { text: 'Sorry!', style: 'cancel' }
       ]);
       return;
     }
@@ -61,8 +62,12 @@ const GameScreen = (props) => {
       <Text style={DefaultStyles.titleText}>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-        <Button title="LOWER" onPress={nextGuessHandler.bind(this, 'lower')} />
-        <Button title="GREATER" onPress={() => nextGuessHandler('greater')} />
+        <MianButton onPress={nextGuessHandler.bind(this, 'lower')}>
+          LOWER
+        </MianButton>
+        <MianButton onPress={() => nextGuessHandler('greater')}>
+          GREATER
+        </MianButton>
       </Card>
     </View>
   );
@@ -72,14 +77,14 @@ const styles = StyleSheet.create({
   screen: {
     // flex: 1,
     padding: 10,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: 20,
-    width: '80%',
-  },
+    width: '80%'
+  }
 });
 
 export default GameScreen;
