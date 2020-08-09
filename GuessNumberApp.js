@@ -50,8 +50,8 @@ const GuessNumberApp = (props) => {
 
 const styles = StyleSheet.create({
   screen: {
-    // flex: 1,
-  },
+    flexGrow: 1
+  }
 });
 
 export default GuessNumberApp;

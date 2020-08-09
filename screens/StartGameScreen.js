@@ -7,7 +7,7 @@ import {
   Button,
   TouchableWithoutFeedback,
   Keyboard,
-  Alert,
+  Alert
 } from 'react-native';
 import Colors from '../constants/colors';
 import Card from '../components/GuessNumberApp/Card';
@@ -103,37 +103,37 @@ const StartGameScreen = (props) => {
 
 const styles = StyleSheet.create({
   screen: {
-    // flex: 1,
+    flexGrow: 1,
     alignItems: 'center',
     width: '100%',
-    height: '100%',
+    height: '100%'
   },
   title: {
-    marginVertical: 10,
+    marginVertical: 10
   },
   inputContainer: {
     width: 300,
     maxWidth: '80%',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   buttonContainer: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
-    paddingHorizontal: 15,
+    paddingHorizontal: 15
   },
   button: {
-    width: 100,
+    width: 100
   },
   input: {
     width: 100,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   numberCard: {
     marginVertical: 20,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
 
 export default StartGameScreen;
