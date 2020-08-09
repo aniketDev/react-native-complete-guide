@@ -13,6 +13,8 @@ import Colors from '../constants/colors';
 import Card from '../components/GuessNumberApp/Card';
 import Input from '../components/GuessNumberApp/Input';
 import NumberContainer from '../components/GuessNumberApp/NumberContainer';
+import TitleText from '../components/GuessNumberApp/TitleText';
+import BodyText from '../components/GuessNumberApp/BodyText';
 
 const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -46,7 +48,7 @@ const StartGameScreen = (props) => {
   if (confirmed) {
     confirmedOutput = (
       <Card style={styles.numberCard}>
-        <Text>The selected number is:</Text>
+        <BodyText>The selected number is:</BodyText>
         <NumberContainer>{selectedNumber}</NumberContainer>
         <Button
           title="Start Game"
@@ -63,9 +65,9 @@ const StartGameScreen = (props) => {
       }}
     >
       <View style={styles.screen}>
-        <Text style={styles.title}>Start a new Game!</Text>
+        <TitleText style={styles.title}>Start a new Game!</TitleText>
         <Card style={styles.inputContainer}>
-          <Text>Select a Number</Text>
+          <BodyText>Select a Number</BodyText>
           <Input
             style={styles.input}
             blurOnSubmit
@@ -107,9 +109,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   title: {
-    fontSize: 20,
     marginVertical: 10,
-    fontFamily: 'open-sans-bold',
   },
   inputContainer: {
     width: 300,
