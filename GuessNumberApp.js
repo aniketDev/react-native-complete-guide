@@ -4,18 +4,40 @@ import { Header } from './components/GuessNumberApp/Header';
 import StartGameScreen from './screens/StartGameScreen';
 
 import GameScreen from './components/GuessNumberApp/GameScreen';
+import GameOverScreen from './components/GuessNumberApp/GameOver';
 
 const GuessNumberApp = (props) => {
   const [userNumber, setUserNumber] = useState();
+  const [numOfRounds, setNumOfRounds] = useState(0);
+
+  const configureNewGame = () => {
+    setNumOfRounds(0);
+    setUserNumber(null);
+  };
 
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
+    setNumOfRounds(0);
+  };
+
+  const gameOverHandler = (numOfRounds) => {
+    setNumOfRounds(numOfRounds);
   };
 
   let content = <StartGameScreen onStartGame={startGameHandler} />;
 
-  if (userNumber) {
-    content = <GameScreen userChoice={userNumber} />;
+  if (userNumber && numOfRounds <= 0) {
+    content = (
+      <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />
+    );
+  } else if (numOfRounds > 0) {
+    content = (
+      <GameOverScreen
+        userNumber={userNumber}
+        roundsNumber={numOfRounds}
+        onRestart={configureNewGame}
+      />
+    );
   }
 
   return (
@@ -29,7 +51,7 @@ const GuessNumberApp = (props) => {
 const styles = StyleSheet.create({
   screen: {
     // flex: 1,
-  }
+  },
 });
 
 export default GuessNumberApp;
