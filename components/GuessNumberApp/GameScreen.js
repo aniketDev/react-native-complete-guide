@@ -4,6 +4,7 @@ import NumberContainer from '../GuessNumberApp/NumberContainer';
 import Card from '../GuessNumberApp/Card';
 import DefaultStyles from '../../constants/defaut-styles';
 import MianButton from '../GuessNumberApp/MainButton';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -63,10 +64,10 @@ const GameScreen = (props) => {
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
         <MianButton onPress={nextGuessHandler.bind(this, 'lower')}>
-          LOWER
+          <MaterialIcons name="remove" size={24} color="white" />
         </MianButton>
         <MianButton onPress={() => nextGuessHandler('greater')}>
-          GREATER
+          <MaterialIcons name="add" size={24} color="white" />
         </MianButton>
       </Card>
     </View>
