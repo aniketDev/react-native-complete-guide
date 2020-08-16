@@ -5,7 +5,8 @@ import {
   StyleSheet,
   Button,
   Alert,
-  ScrollView
+  ScrollView,
+  FlatList
 } from 'react-native';
 import NumberContainer from '../GuessNumberApp/NumberContainer';
 import Card from '../GuessNumberApp/Card';
@@ -24,10 +25,10 @@ const generateRandomBetween = (min, max, exclude) => {
   return randomNum;
 };
 
-const renderListItem = (value, numOfRound) => (
-  <View key={value} style={styles.listItem}>
-    <BodyText>#{numOfRound}</BodyText>
-    <BodyText>{value}</BodyText>
+const renderListItem = (listLength, itemData) => (
+  <View style={styles.listItem}>
+    <BodyText>#{listLength - itemData.index}</BodyText>
+    <BodyText>{itemData.item}</BodyText>
   </View>
 );
 
@@ -35,7 +36,7 @@ const GameScreen = (props) => {
   const { userChoice, onGameOver } = props;
   const initialGuess = generateRandomBetween(1, 100, userChoice);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
-  const [pastGuesses, setPastGuesses] = useState([initialGuess]);
+  const [pastGuesses, setPastGuesses] = useState([initialGuess.toString()]);
 
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
@@ -69,7 +70,7 @@ const GameScreen = (props) => {
     );
     setCurrentGuess(nextNumber);
     // setRounds((currentRounds) => currentRounds + 1);
-    setPastGuesses((pastGuesses) => [nextNumber, ...pastGuesses]);
+    setPastGuesses((pastGuesses) => [nextNumber.toString(), ...pastGuesses]);
   };
 
   return (
@@ -85,11 +86,17 @@ const GameScreen = (props) => {
         </MianButton>
       </Card>
       <View style={styles.listContainer}>
-        <ScrollView contentContainerStyle={styles.list}>
+        {/* <ScrollView contentContainerStyle={styles.list}>
           {pastGuesses.map((guess, index) =>
             renderListItem(guess, pastGuesses.length - index)
           )}
-        </ScrollView>
+        </ScrollView> */}
+        <FlatList
+          keyExtractor={(item) => item}
+          data={pastGuesses}
+          contentContainerStyle={styles.list}
+          renderItem={renderListItem.bind(this, pastGuesses.length)}
+        />
       </View>
     </View>
   );
@@ -122,7 +129,7 @@ const styles = StyleSheet.create({
     width: '80%'
   },
   list: {
-    alignItems: 'center'
+    // alignItems: 'center'
   }
 });
 
