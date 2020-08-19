@@ -15,6 +15,8 @@ import DefaultStyles from '../../constants/defaut-styles';
 import MianButton from '../GuessNumberApp/MainButton';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import BodyText from '../GuessNumberApp/BodyText';
+// import { ScreenOrientation } from 'expo';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -34,6 +36,8 @@ const renderListItem = (listLength, itemData) => (
 );
 
 const GameScreen = (props) => {
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+
   const { userChoice, onGameOver } = props;
   const initialGuess = generateRandomBetween(1, 100, userChoice);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
