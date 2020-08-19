@@ -11,7 +11,7 @@ import {
 import BodyText from '../../components/GuessNumberApp/BodyText';
 import TitleText from '../../components/GuessNumberApp/TitleText';
 import Colors from '../../constants/colors';
-import MainButton from '../../components/GuessNumberApp/MainButton';
+import MainButton from './MainButton';
 
 const GameOver = (props) => {
   const [availableDeviceWidth, setAvailableDeviceWidth] = useState(

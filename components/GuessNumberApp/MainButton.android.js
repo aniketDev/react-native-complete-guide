@@ -11,7 +11,7 @@ import Colors from '../../constants/colors';
 
 const MainButton = (props) => {
   let ButtonComponent = TouchableOpacity;
-  if (Platform.OS === 'android' && Platform.Version >= 21) {
+  if (Platform.Version >= 21) {
     ButtonComponent = TouchableNativeFeedback;
   }
 
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: Colors.primary,
     paddingVertical: 10,
-    paddingHorizontal: 15
-    // borderRadius: 10
+    paddingHorizontal: 15,
+    borderRadius: 10
   },
   buttonText: {
     fontSize: 18,

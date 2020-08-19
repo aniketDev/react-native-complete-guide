@@ -12,7 +12,7 @@ import {
 import NumberContainer from '../GuessNumberApp/NumberContainer';
 import Card from '../GuessNumberApp/Card';
 import DefaultStyles from '../../constants/defaut-styles';
-import MianButton from '../GuessNumberApp/MainButton';
+import MianButton from './MainButton';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import BodyText from '../GuessNumberApp/BodyText';
 // import { ScreenOrientation } from 'expo';
