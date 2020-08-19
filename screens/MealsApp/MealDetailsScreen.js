@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Boilerplate = (props) => {
+const MealDetailsScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>Replace me!</Text>
+      <Text>Detail me!</Text>
     </View>
   );
 };
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Boilerplate;
+export default MealDetailsScreen;
