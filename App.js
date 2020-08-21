@@ -26,11 +26,7 @@ export default function App() {
     );
   }
 
-  return (
-    <View>
-      <MealsApp />
-    </View>
-  );
+  return <MealsApp />;
 }
 
 const styles = StyleSheet.create({});

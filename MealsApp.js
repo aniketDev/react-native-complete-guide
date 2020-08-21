@@ -1,20 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import MealsNavigator from './navigation/MealsNavigator';
 
 const MealsApp = (props) => {
-  return (
-    <View style={styles.screen}>
-      <Text>Meals app me!</Text>
-    </View>
-  );
+  return <MealsNavigator />;
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
+const styles = StyleSheet.create({});
 
 export default MealsApp;
