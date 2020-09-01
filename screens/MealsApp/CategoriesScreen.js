@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
 const CategoriesScreen = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <View style={styles.screen}>
       <Text>Meals app me!</Text>
@@ -10,7 +10,9 @@ const CategoriesScreen = (props) => {
         title="Go to meals"
         onPress={() => {
           // props.navigation.navigate('CategoryMeals');
-          props.navigation.replace('CategoryMeals');
+          props.navigation.navigate({ routeName: 'CategoryMeals' });
+          // props.navigation.push('CategoryMeals');
+          // props.navigation.replace('CategoryMeals');
         }}
       />
     </View>
