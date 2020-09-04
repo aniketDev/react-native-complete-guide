@@ -5,6 +5,9 @@ import GuessNumberApp from './GuessNumberApp';
 import MealsApp from './MealsApp';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import { enableScreens } from 'react-native-screens';
+
+enableScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({

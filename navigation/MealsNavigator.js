@@ -5,12 +5,22 @@ import CategoriesScreen from '../screens/MealsApp/CategoriesScreen';
 import CategoryMealsScreen from '../screens/MealsApp/CategoryMealsScreen';
 import MealDetailsScreen from '../screens/MealsApp/MealDetailsScreen';
 
-const MealsNavigator = createStackNavigator({
-  Categories: CategoriesScreen,
-  CategoryMeals: {
-    screen: CategoryMealsScreen
+const MealsNavigator = createStackNavigator(
+  {
+    Categories: CategoriesScreen,
+    CategoryMeals: {
+      screen: CategoryMealsScreen
+    },
+    MealDetails: MealDetailsScreen
   },
-  MealDetails: MealDetailsScreen
-});
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: 'teal'
+      },
+      headerTintColor: 'white'
+    }
+  }
+);
 
 export default createAppContainer(MealsNavigator);

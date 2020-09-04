@@ -28,6 +28,15 @@ const CategoryMealsScreen = (props) => {
   );
 };
 
+CategoryMealsScreen.navigationOptions = (navigationData) => {
+  const categoryId = navigationData.navigation.getParam('categoryId');
+  const selectedCategories = CATEGORIES.find((cat) => cat.id === categoryId);
+
+  return {
+    headerTitle: selectedCategories.title
+  };
+};
+
 const styles = StyleSheet.create({
   screen: {
     flexGrow: 1,
