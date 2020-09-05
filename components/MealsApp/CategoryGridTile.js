@@ -1,25 +1,30 @@
 import React from 'react';
 import {
   TouchableOpacity,
-  Text,
   View,
+  Text,
   StyleSheet,
   Platform,
   TouchableNativeFeedback
 } from 'react-native';
 
-const CategoryGridTile = (props) => {
-  let TouchableContainer = TouchableOpacity;
+const CategoryGridTile = props => {
+  let TouchableCmp = TouchableOpacity;
+
   if (Platform.OS === 'android' && Platform.Version >= 21) {
-    TouchableContainer = TouchableNativeFeedback;
+    TouchableCmp = TouchableNativeFeedback;
   }
   return (
     <View style={styles.gridItem}>
-      <TouchableContainer onPress={props.onSelect}>
-        <View style={{ ...styles.card, backgroundColor: props.color }}>
-          <Text style={styles.title}>{props.title}</Text>
+      <TouchableCmp style={{ flex: 1 }} onPress={props.onSelect}>
+        <View
+          style={{ ...styles.container, ...{ backgroundColor: props.color } }}
+        >
+          <Text style={styles.title} numberOfLines={2}>
+            {props.title}
+          </Text>
         </View>
-      </TouchableContainer>
+      </TouchableCmp>
     </View>
   );
 };
@@ -27,22 +32,30 @@ const CategoryGridTile = (props) => {
 const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
-    margin: 10,
-    height: 120,
+    margin: 15,
+    height: 150,
     borderRadius: 10,
-    overflow: 'hidden'
+    overflow:
+      Platform.OS === 'android' && Platform.Version >= 21
+        ? 'hidden'
+        : 'visible',
+    elevation: 5
   },
-  card: {
+  container: {
     flex: 1,
-    elevation: 3,
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
+    borderRadius: 10,
+    shadowColor: 'black',
+    shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 10,
+    padding: 15,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end'
   },
   title: {
     fontFamily: 'open-sans-bold',
-    color: 'white',
-    fontSize: 20
+    fontSize: 22,
+    textAlign: 'right'
   }
 });
 
